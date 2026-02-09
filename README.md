@@ -13,13 +13,27 @@ Foundation stage - implementing tokenization and attention mechanisms
 - Train on small corpus
 - Generate coherent text
 
-## Build
+## Setup
 ```bash
 cd nuLLM
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+```
+
+## Quick Test
+```bash
+python examples/quick_test.py
+```
+
+## Train
+```bash
 python src/train.py
+```
+
+**Note**: Requires PyTorch. If not installed:
+```bash
+pip install torch
 ```
 
 ## Documentation
