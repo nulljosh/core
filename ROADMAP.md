@@ -1,4 +1,4 @@
-# microLM Development Roadmap
+# nuLLM Development Roadmap
 
 ## Phase 1: Tokenization [DONE]
 - Character tokenizer (simplest)

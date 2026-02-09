@@ -11,7 +11,7 @@
     </style>
   </defs>
   
-  <text x="400" y="30" class="title" text-anchor="middle">microLM Architecture</text>
+  <text x="400" y="30" class="title" text-anchor="middle">nuLLM Architecture</text>
   
   <!-- Phase 1: Tokenization -->
   <rect x="50" y="80" width="150" height="80" class="current" rx="5"/>

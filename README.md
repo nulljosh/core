@@ -1,4 +1,4 @@
-# microLM
+# nuLLM
 
 A minimal LLM (Large Language Model) built from scratch in Python. Educational project to understand transformer architecture.
 
@@ -15,7 +15,7 @@ Foundation stage - implementing tokenization and attention mechanisms
 
 ## Build
 ```bash
-cd microLM
+cd nuLLM
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt

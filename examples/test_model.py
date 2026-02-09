@@ -8,7 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
 
 import torch
-from transformer import MicroLM
+from transformer import NuLLM
 
 # Tiny model config
 vocab_size = 100
@@ -18,8 +18,8 @@ num_layers = 2
 ff_dim = 256
 max_len = 128
 
-print("Creating microLM model...")
-model = MicroLM(
+print("Creating nuLLM model...")
+model = NuLLM(
     vocab_size=vocab_size,
     embed_dim=embed_dim,
     num_heads=num_heads,
