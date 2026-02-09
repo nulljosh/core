@@ -1,8 +1,8 @@
 # nuLLM
 
-A minimal LLM (Large Language Model) built from scratch in Python. Educational project to understand transformer architecture.
+A minimal LLM built from scratch in Python. On-system Claude alternative - no API costs.
 
-![Project Map](map.svg)
+![Architecture](map.svg)
 
 ## Status
 Foundation stage - implementing tokenization and attention mechanisms
