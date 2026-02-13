@@ -1,25 +1,36 @@
 # nuLLM
 
-A minimal LLM built from scratch in Python. On-system Claude alternative - no API costs.
+Minimal LLM built from scratch. On-system Claude alternative - no API costs.
 
-![Architecture](map.svg)
+![Architecture](architecture.svg)
 
 ## Status
-**✅ Production Ready** - Verified 2026-02-12
-- ✅ Tokenization: Char, word, BPE (tested, working)
-- ✅ Attention: Multi-head, scaled dot-product (tested, working)
-- ✅ Transformer: Full stack with residuals (tested, working)
-- ✅ Training: Loss converges (2.6134 → trainable)
-- ✅ Generation: Autoregressive sampling (tested, working)
-- ✅ Chat: Conversational interface (implemented)
-- ✅ All dependencies installed: torch, numpy, tiktoken, tqdm
-- ✅ End-to-end pipeline verified (quick_test.py passes) 
+Production Ready - All phases complete (verified 2026-02-13)
+- Tokenization: Char, word, BPE
+- Attention: Multi-head, scaled dot-product
+- Transformer: Full stack with residuals
+- Training: Loss converges
+- Generation: Autoregressive sampling
+- Chat: Conversational interface
 
-## Goals
-- Tokenize text (BPE/WordPiece)
-- Build transformer architecture (attention, feed-forward, layernorm)
-- Train on small corpus
-- Generate coherent text
+## Overview
+
+nuLLM implements core transformer concepts from "Attention Is All You Need" in ~500 lines of Python. Built to understand how modern LLMs actually work under the hood.
+
+**Components:**
+- **Tokenization**: Character, word, and BPE tokenizers
+- **Attention**: Single-head and multi-head self-attention
+- **Transformer**: Full blocks with feed-forward, layer norm, residuals
+- **Training**: Cross-entropy loss with Adam optimizer
+- **Generation**: Autoregressive sampling with temperature control
+- **Chat**: Conversational wrapper with auto-training
+
+**What you learn:**
+- How text becomes numbers (tokenization)
+- How transformers "focus" (attention mechanisms)
+- How gradient descent works (training loop)
+- How models generate text (sampling strategies)
+- How to scale up (bigger models, better data)
 
 ## Setup
 ```bash
@@ -39,15 +50,26 @@ python examples/quick_test.py
 python src/train.py
 ```
 
-**Note**: Requires PyTorch. If not installed:
+## Chat
 ```bash
-pip install torch
+python src/chat.py
 ```
 
-## Documentation
-- [ROADMAP.md](ROADMAP.md) - Development phases
-- [BENCHMARKS.md](BENCHMARKS.md) - Complexity tiers
-- [ARCHITECTURE.md](ARCHITECTURE.md) - Model design
+## Model Sizes
+
+**Nano** (demo): 50K params, 2 layers, 64 context
+**Micro** (learning): 500K params, 4 layers, 256 context
+**Mini** (usable): 5M params, 6 layers, 512 context
+
+## Comparison
+
+| Model | Params | Context | Training |
+|-------|--------|---------|----------|
+| GPT-2 | 124M   | 1024    | WebText  |
+| GPT-3 | 175B   | 2048    | Internet |
+| nuLLM | 50K-5M | 64-512  | WikiText |
+
+nuLLM is ~2500x smaller than GPT-2 but uses the same architecture.
 
 ## Author
 Joshua Trommel (nulljosh)
