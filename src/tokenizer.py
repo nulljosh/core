@@ -38,10 +38,10 @@ class WordTokenizer:
 class BPETokenizer:
     """Byte Pair Encoding (subword) tokenizer using tiktoken"""
 
-    def __init__(self, vocab_size=50257):
+    def __init__(self):
         import tiktoken
         self.encoder = tiktoken.get_encoding("cl100k_base")
-        self.vocab_size = vocab_size
+        self.vocab_size = self.encoder.n_vocab
 
     def encode(self, text):
         return self.encoder.encode(text)

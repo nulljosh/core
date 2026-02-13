@@ -25,7 +25,7 @@ CONFIGS = {
         'batch_size': 4
     },
     'micro': {
-        'vocab': 50257,
+        'vocab': 100277,  # tiktoken cl100k_base vocab size
         'embed_dim': 128,
         'num_heads': 4,
         'num_layers': 4,
@@ -35,7 +35,7 @@ CONFIGS = {
         'batch_size': 8
     },
     'mini': {
-        'vocab': 50257,
+        'vocab': 100277,  # tiktoken cl100k_base vocab size
         'embed_dim': 256,
         'num_heads': 8,
         'num_layers': 6,

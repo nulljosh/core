@@ -79,9 +79,13 @@ def test_model_forward():
     dataset = WikiText2Dataset(tok, seq_len=128, split='train')
     x, y = dataset[0]
 
-    # Create Micro model
+    # Get actual vocab size from tokenizer
+    actual_vocab = tok.encoder.n_vocab
+    print(f"Actual vocab size: {actual_vocab}")
+
+    # Create Micro model with correct vocab size
     model = NuLLM(
-        vocab_size=50257,
+        vocab_size=actual_vocab,
         embed_dim=128,
         num_heads=4,
         num_layers=4,
@@ -96,7 +100,7 @@ def test_model_forward():
     # Forward pass
     out = model(x.unsqueeze(0))
 
-    assert out.shape == (1, 128, 50257), f"Model output shape incorrect: {out.shape}"
+    assert out.shape == (1, 128, actual_vocab), f"Model output shape incorrect: {out.shape}"
     print(f"Input shape: {x.unsqueeze(0).shape}")
     print(f"Output shape: {out.shape}")
     print("✓ Micro model forward pass working\n")
