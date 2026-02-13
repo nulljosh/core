@@ -70,6 +70,3 @@ python src/chat.py
 | nuLLM | 50K-5M | 64-512  | WikiText |
 
 nuLLM is ~2500x smaller than GPT-2 but uses the same architecture.
-
-## Author
-Joshua Trommel (nulljosh)
