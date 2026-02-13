@@ -5,7 +5,8 @@ Validates BPE tokenizer, WikiText-2 loading, dataset creation, and model forward
 """
 
 import sys
-sys.path.insert(0, '../src')
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 
 def test_bpe_tokenizer():

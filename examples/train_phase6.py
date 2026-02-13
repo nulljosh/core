@@ -4,7 +4,8 @@ Phase 6: Scale - Train on WikiText-2 with BPE tokenizer
 """
 
 import sys
-sys.path.insert(0, '../src')
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 from train import main
 import argparse
