@@ -101,6 +101,11 @@ Not perfect, but it learned:
 source venv/bin/activate && \
   python3 src/train.py --epochs 100 --corpus tiny && \
   python3 src/generate.py --prompt "To be" --length 100
+
+# Web UI (prettier, easier)
+pip install flask
+python3 web_ui.py
+# Visit http://localhost:5000
 ```
 
 ## Status
