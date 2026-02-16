@@ -15,10 +15,20 @@ Learns patterns in text and generates new text based on what it learned.
 
 ### 1. Setup
 ```bash
-python3 -m venv venv
+python3.13 -m venv venv
 source venv/bin/activate
-pip install torch
+pip install torch flask
 ```
+
+### 1.1 Configuration (Optional)
+Create a `.env` file for custom settings:
+```bash
+MODEL_PATH=models/ultra.pt
+DATA_PATH=data/ultra_minimal.txt
+PORT=5001
+DEBUG=True
+```
+`.env` is gitignored by default.
 
 ### 2. Train
 ```bash
@@ -99,30 +109,48 @@ Not perfect, but it learned:
 ## Quick Start
 
 ```bash
-# One-liner to train and generate
-source venv/bin/activate && \
-  python3 src/train.py --epochs 100 --corpus tiny && \
-  python3 src/generate.py --prompt "To be" --length 100
+# Train the ultra-minimal model (3 Q&A pairs, fast)
+source venv/bin/activate
+python3 train_ultra.py  # ~30 seconds
 
-# Web UI (prettier, easier)
-pip install flask
+# Start web UI with interactive quiz
 python3 web_ui.py
-# Visit http://localhost:5000
+# Visit http://localhost:5001
+# Quiz interface: http://localhost:5001/quiz
 ```
+
+## Web UI
+
+Two interfaces available:
+
+1. **Main UI** (`/`) - Interactive text generation
+   - Adjustable temperature, length
+   - Live generation
+
+2. **Quiz UI** (`/quiz`) - Test model knowledge
+   - 3 questions: name, 5+5, 2+2
+   - Shows pass/fail results
+   - Clean flat design (no gradients)
+   - Progress tracking
 
 ## Status
 
-**Night 1 (Feb 13, 2026):**
-- ✅ Full training pipeline
-- ✅ 100-epoch training complete
-- ✅ Loss convergence verified (3.0 → 0.13)
-- 500-epoch training in progress (overnight)
+**Latest (Feb 14, 2026):**
+- ✅ Ultra-minimal training (3 Q&A pairs, 20K params)
+- ✅ Web UI with quiz interface
+- ✅ Fixed sequence length bug (IndexError on generation)
+- ✅ Clean flat UI design (removed gradients)
+- ✅ `.env` configuration support
+- ✅ Python 3.13 compatibility
+
+**Model Performance:**
+- Math questions (2+2, 5+5): ✅ Working
+- Name question: ⚠️ Needs improvement (model too small for longer sequences)
 
 **Next:**
-- Better datasets (WikiText-2)
-- Web UI for generation
-- Better sampling strategies
-- Fine-tuning on custom data
+- Scale up model for better name recognition
+- Add more training examples
+- Implement top-k/nucleus sampling
 
 ---
 
