@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-nuLLM Web UI - Simple Flask interface for text generation
+core Web UI - Simple Flask interface for text generation
 """
 
 from flask import Flask, render_template, request, jsonify, send_file
 import torch
 import sys
 sys.path.insert(0, 'src')
-from transformer import NuLLM
+from transformer import Core
 from tokenizer import CharTokenizer
 import os
 
@@ -29,7 +29,7 @@ def load_model():
         tokenizer = CharTokenizer(text)
         
         # Recreate model with same params as training
-        model = NuLLM(
+        model = Core(
             vocab_size=tokenizer.vocab_size,
             embed_dim=32,
             num_heads=2,
@@ -111,6 +111,6 @@ def status():
 
 if __name__ == '__main__':
     load_model()
-    print("\n🚀 nuLLM Web UI starting...")
+    print("\n🚀 core Web UI starting...")
     print("   Visit: http://localhost:5001\n")
     app.run(debug=True, port=5001)

@@ -1,4 +1,4 @@
-# nuLLM - Nano Language Model
+# core - Nano Language Model
 
 **TLDR:** Tiny transformer that learns to predict text, built from scratch in PyTorch.
 

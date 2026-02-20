@@ -1,4 +1,4 @@
-# nuLLM - Claude Notes
+# core - Claude Notes
 
 ## Project Overview
 Minimal transformer-based language model. ~500 LOC Python. Educational tool to understand LLM internals.
@@ -8,7 +8,7 @@ Minimal transformer-based language model. ~500 LOC Python. Educational tool to u
 ### Components (src/)
 **tokenizer.py**: CharTokenizer (simplest), WordTokenizer (whitespace split), BPE (subword, industry standard)
 **attention.py**: SelfAttention (single head, Q/K/V projections), MultiHeadAttention (parallel attention patterns)
-**transformer.py**: FeedForward (position-wise FFN), TransformerBlock (attention + FFN + LayerNorm + residuals), NuLLM (full model)
+**transformer.py**: FeedForward (position-wise FFN), TransformerBlock (attention + FFN + LayerNorm + residuals), Core (full model)
 **train.py**: TextDataset (autoregressive sliding window), training loop (cross-entropy + Adam), generation (sampling)
 **chat.py**: Conversational wrapper with auto-training fallback
 
@@ -21,7 +21,7 @@ Minimal transformer-based language model. ~500 LOC Python. Educational tool to u
 
 ### Setup
 ```bash
-cd ~/Documents/Code/nuLLM
+cd ~/Documents/Code/core
 python3 -m venv venv
 source venv/bin/activate
 pip install torch numpy tiktoken tqdm
@@ -63,7 +63,7 @@ python src/chat.py                 # Chat interface
 
 ## Code Structure
 ```
-nuLLM/
+core/
 ├── src/              # Core implementation
 │   ├── tokenizer.py  # Text → tokens
 │   ├── attention.py  # Attention mechanisms
@@ -112,7 +112,7 @@ nuLLM/
 
 ## Comparison to Real Models
 
-| Component | GPT-2 | nuLLM (nano) |
+| Component | GPT-2 | core (nano) |
 |-----------|-------|--------------|
 | Layers | 12 | 2 |
 | Heads | 12 | 2 |
@@ -120,4 +120,4 @@ nuLLM/
 | Context | 1024 | 64 |
 | Params | 124M | 50K |
 
-nuLLM is ~2500x smaller but uses the same architecture. Not replacing Claude - understanding how Claude works.
+core is ~2500x smaller but uses the same architecture. Not replacing Claude - understanding how Claude works.

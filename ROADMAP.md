@@ -1,4 +1,4 @@
-# nuLLM Development Roadmap
+# core Development Roadmap
 
 ## Phase 1: Tokenization [DONE]
 - Character tokenizer (simplest)

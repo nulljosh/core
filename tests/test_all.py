@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Comprehensive test suite for nuLLM
+Comprehensive test suite for core
 Run without PyTorch to verify logic
 """
 
@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
 
-print("🧪 nuLLM Test Suite")
+print("🧪 core Test Suite")
 print("="*70)
 
 # Test 1: Tokenizers
@@ -37,7 +37,7 @@ print("   - SelfAttention (Q, K, V projections)")
 print("   - MultiHeadAttention (parallel heads)")
 print("   - FeedForward (2-layer MLP)")
 print("   - TransformerBlock (attention + FFN + norm)")
-print("   - NuLLM (full model)")
+print("   - Core (full model)")
 
 # Test 3: Training logic
 print("\n✓ Test 3: Training Pipeline")

@@ -7,7 +7,7 @@ import os
 from torch.utils.data import Dataset, DataLoader
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
-from transformer import NuLLM
+from transformer import Core
 from tokenizer import CharTokenizer
 
 class TextDataset(Dataset):
@@ -43,7 +43,7 @@ if len(dataset) == 0:
 dataloader = DataLoader(dataset, batch_size=16, shuffle=True)
 
 # Medium model for narrative text
-model = NuLLM(
+model = Core(
     vocab_size=tokenizer.vocab_size,
     embed_dim=128,
     num_heads=4,

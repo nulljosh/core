@@ -3,7 +3,7 @@
 import torch, torch.nn as nn, sys, os
 from torch.utils.data import Dataset, DataLoader
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
-from transformer import NuLLM
+from transformer import Core
 from tokenizer import CharTokenizer
 
 class TextDataset(Dataset):
@@ -30,7 +30,7 @@ if len(dataset) == 0:
 dataloader = DataLoader(dataset, batch_size=8, shuffle=True)
 
 # Smaller model for simpler task
-model = NuLLM(vocab_size=tokenizer.vocab_size, embed_dim=32, num_heads=2, num_layers=2, ff_dim=64, max_len=32, dropout=0.0)
+model = Core(vocab_size=tokenizer.vocab_size, embed_dim=32, num_heads=2, num_layers=2, ff_dim=64, max_len=32, dropout=0.0)
 params = sum(p.numel() for p in model.parameters())
 print(f"✓ Model: {params:,} params (tiny!)\n")
 

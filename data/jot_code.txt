@@ -16,7 +16,7 @@ let next_year = age + 1;
 print "Hey " + name + "! You'll be " + str(next_year) + " next year";
 
 // Arrays & loops
-let projects = ["nullC", "nuLLM", "jot", "WikiScroll"];
+let projects = ["nullC", "core", "jot", "WikiScroll"];
 print "\nYour projects:";
 for i in range(0, 4) {
     print "  " + str(i + 1) + ". " + projects[i];
@@ -48,7 +48,7 @@ print "  What I love: " + chloe.loves;
 let languages_complete = 3;
 if languages_complete == 3 {
     print "\n🎉 All three languages done!";
-    print "nullC, nuLLM, and jot are all working!";
+    print "nullC, core, and jot are all working!";
 } else {
     print "\nStill working on languages...";
 }
@@ -491,7 +491,7 @@ print "\nImport system working!";
 let user = {
     name: "Joshua",
     age: 26,
-    projects: ["nullC", "nuLLM", "jot"]
+    projects: ["nullC", "core", "jot"]
 };
 
 // Stringify

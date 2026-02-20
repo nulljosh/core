@@ -2,7 +2,7 @@
 """Test ultra-minimal model"""
 import torch, sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
-from transformer import NuLLM
+from transformer import Core
 from tokenizer import CharTokenizer
 
 print("Loading models/ultra.pt...")
@@ -16,7 +16,7 @@ tokenizer = CharTokenizer(text)
 print(f"✓ Vocab: {tokenizer.vocab_size} chars\n")
 
 # Recreate model with SAME params as training
-model = NuLLM(
+model = Core(
     vocab_size=tokenizer.vocab_size,
     embed_dim=32,
     num_heads=2,
@@ -65,7 +65,7 @@ print("🧪 TESTING (your demo questions)")
 print("="*60 + "\n")
 
 tests = [
-    ("Q: What is your name?\nA:", "I'm nuLLM"),
+    ("Q: What is your name?\nA:", "I'm core"),
     ("Q: What is 5+5?\nA:", "10"),
     ("Q: What is 2+2?\nA:", "4"),
 ]

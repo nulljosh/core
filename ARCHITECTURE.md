@@ -1,8 +1,8 @@
-# nuLLM Architecture
+# core Architecture
 
 ## Overview
 
-nuLLM is a minimal transformer-based language model. It implements the core concepts from "Attention Is All You Need" in ~500 lines of Python.
+core is a minimal transformer-based language model. It implements the core concepts from "Attention Is All You Need" in ~500 lines of Python.
 
 ## Components
 
@@ -47,7 +47,7 @@ nuLLM is a minimal transformer-based language model. It implements the core conc
 - Residual connections
 - Dropout for regularization
 
-**NuLLM**: Complete model
+**Core**: Complete model
 - Token embeddings
 - Positional embeddings
 - Stack of transformer blocks
@@ -95,7 +95,7 @@ nuLLM is a minimal transformer-based language model. It implements the core conc
 
 ## Comparison to Real Models
 
-| Component | GPT-2 | nuLLM (nano) |
+| Component | GPT-2 | core (nano) |
 |-----------|-------|--------------|
 | Layers | 12 | 2 |
 | Heads | 12 | 2 |
@@ -103,7 +103,7 @@ nuLLM is a minimal transformer-based language model. It implements the core conc
 | Context | 1024 | 64 |
 | Params | 124M | 50K |
 
-nuLLM is ~2500x smaller but uses the same architecture.
+core is ~2500x smaller but uses the same architecture.
 
 ## Key Concepts
 
@@ -156,7 +156,7 @@ Controls randomness:
 ## Code Structure
 
 ```
-nuLLM/
+core/
 ├── src/
 │   ├── tokenizer.py      # Text → tokens
 │   ├── attention.py      # Attention mechanisms

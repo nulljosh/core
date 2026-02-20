@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
 
 import torch
 from tokenizer import CharTokenizer
-from transformer import NuLLM
+from transformer import Core
 
 # Tiny training corpus
 text = "hello world this is a test hello test world"
@@ -25,7 +25,7 @@ print(f"   Sample: 'hello' -> {tokenizer.encode('hello')}")
 
 # 2. Model forward pass
 print("\n2. Model Forward Pass")
-model = NuLLM(
+model = Core(
     vocab_size=tokenizer.vocab_size,
     embed_dim=16,
     num_heads=2,

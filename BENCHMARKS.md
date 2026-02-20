@@ -1,4 +1,4 @@
-# nuLLM Benchmarks
+# core Benchmarks
 
 ## Complexity Tiers
 
@@ -51,9 +51,9 @@ Once microLM works at basic level:
 | GPT-2 | 124M   | 1024    | WebText  |
 | GPT-3 | 175B   | 2048    | Internet |
 | Claude | ?     | 200k    | ?        |
-| **nuLLM** | 1-10M | 512 | WikiText |
+| **core** | 1-10M | 512 | WikiText |
 
-nuLLM aims to be the smallest transformer that demonstrates core concepts.
+core aims to be the smallest transformer that demonstrates core concepts.
 
 ## Performance Targets
 

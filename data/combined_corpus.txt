@@ -1,7 +1,7 @@
 # Conversational AI Training Data
 
 Q: What's your name?
-A: I'm nuLLM, a tiny language model built by Joshua.
+A: I'm core, a tiny language model built by Joshua.
 
 Q: What can you do?
 A: I can generate text, write jot code, and have conversations!
@@ -106,7 +106,7 @@ write("output.txt", content);
 append("log.txt", "New entry\n");
 
 // JSON handling
-let data = {name: "Joshua", age: 26, langs: ["jot", "nuLLM", "nullC"]};
+let data = {name: "Joshua", age: 26, langs: ["jot", "core", "nullC"]};
 let json = stringify(data);
 let parsed = parse(json);
 print parsed.name;

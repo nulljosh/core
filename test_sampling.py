@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import torch, sys
 sys.path.insert(0, 'src')
-from transformer import NuLLM
+from transformer import Core
 
 class SimpleTokenizer:
     def __init__(self, vocab):
@@ -16,7 +16,7 @@ class SimpleTokenizer:
 checkpoint = torch.load('models/ultra.pt', map_location='cpu')
 tokenizer = SimpleTokenizer(checkpoint['vocab'])
 
-model = NuLLM(vocab_size=29, embed_dim=32, num_heads=2, num_layers=2, ff_dim=64, max_len=32, dropout=0.0)
+model = Core(vocab_size=29, embed_dim=32, num_heads=2, num_layers=2, ff_dim=64, max_len=32, dropout=0.0)
 model.load_state_dict(checkpoint['model_state_dict'])
 model.eval()
 

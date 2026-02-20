@@ -16,7 +16,7 @@
 - Sourced from ~/Documents/Code/jot/examples/
 
 ### 3. Identity/Meta Q&A (183 pairs)
-- **Name:** "What is your name?" → "nuLLM"
+- **Name:** "What is your name?" → "core"
 - **Creator:** "Who made you?" → "Josh made me"
 - **What are you:** "What are you?" → "I'm a language model"
 - **Capabilities:** "What can you do?" → "I can answer questions and help with math and code"
@@ -106,7 +106,7 @@ This will test **all categories**:
 - And 7 more math questions
 
 ### Identity Tests
-- "Q: What is your name?\nA:" → should output "nuLLM"
+- "Q: What is your name?\nA:" → should output "core"
 - "Q: Who made you?\nA:" → should output "Josh made me" or "Josh"
 - "Q: What are you?\nA:" → should output "I'm a language model"
 - And 3 more identity questions

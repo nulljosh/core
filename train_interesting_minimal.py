@@ -7,7 +7,7 @@ import os
 from torch.utils.data import Dataset, DataLoader
 
 sys.path.insert(0, 'src')
-from transformer import NuLLM
+from transformer import Core
 from tokenizer import CharTokenizer
 
 class TextDataset(Dataset):
@@ -65,7 +65,7 @@ def measure_performance(func):
 
 In the end, intelligence is just pattern recognition scaled up. Humans recognize patterns in nature, language, mathematics. AI does the same, just faster and with more data. The difference is quantitative, not qualitative."""
 
-print("Training nuLLM (minimal test version)")
+print("Training core (minimal test version)")
 print(f"Data: {len(dataset_text)} chars\n")
 
 # Expand dataset (same as train_interesting.py)
@@ -85,7 +85,7 @@ if len(dataset) < 10:
 # MINIMAL CONFIG - same as train_debug.py
 dataloader = DataLoader(dataset, batch_size=4, shuffle=False, num_workers=0)
 
-model = NuLLM(
+model = Core(
     vocab_size=tokenizer.vocab_size,
     embed_dim=64,        # 64 instead of 128
     num_heads=2,         # 2 instead of 4

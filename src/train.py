@@ -6,7 +6,7 @@ Simple autoregressive language modeling
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
-from transformer import NuLLM
+from transformer import Core
 from tokenizer import CharTokenizer, WordTokenizer, BPETokenizer
 import argparse
 import sys
@@ -141,7 +141,7 @@ def main(corpus='tiny', tokenizer_type='char', model_size='nano', epochs=50, lr=
     Or to take arms against a sea of troubles.
     """.strip()
 
-    print(f"Training nuLLM {model_size.upper()} on {corpus}...")
+    print(f"Training core {model_size.upper()} on {corpus}...")
 
     # Setup device
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -175,7 +175,7 @@ def main(corpus='tiny', tokenizer_type='char', model_size='nano', epochs=50, lr=
     print(f"Vocab size: {tokenizer.vocab_size}")
 
     # Create model
-    model = NuLLM(
+    model = Core(
         vocab_size=tokenizer.vocab_size,
         embed_dim=config['embed_dim'],
         num_heads=config['num_heads'],
@@ -217,7 +217,7 @@ def main(corpus='tiny', tokenizer_type='char', model_size='nano', epochs=50, lr=
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Train nuLLM')
+    parser = argparse.ArgumentParser(description='Train core')
     parser.add_argument('--corpus', default='tiny', choices=['tiny', 'wikitext-2'],
                         help='Training corpus')
     parser.add_argument('--tokenizer', default='char', choices=['char', 'word', 'bpe'],

@@ -72,7 +72,7 @@ def test_model_forward():
     import torch
     from tokenizer import BPETokenizer
     from data_loader import WikiText2Dataset
-    from transformer import NuLLM
+    from transformer import Core
 
     # Create dataset
     tok = BPETokenizer()
@@ -84,7 +84,7 @@ def test_model_forward():
     print(f"Actual vocab size: {actual_vocab}")
 
     # Create Micro model with correct vocab size
-    model = NuLLM(
+    model = Core(
         vocab_size=actual_vocab,
         embed_dim=128,
         num_heads=4,
@@ -108,7 +108,7 @@ def test_model_forward():
 
 def main():
     print("\n" + "="*70)
-    print("nuLLM Phase 6: Component Tests")
+    print("core Phase 6: Component Tests")
     print("="*70 + "\n")
 
     try:

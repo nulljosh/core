@@ -1,4 +1,4 @@
-# nuLLM Completion Guide - Final 10%
+# core Completion Guide - Final 10%
 
 ## Current Status
 - **Code Complete**: 95% (all phases 1-5 implemented)
@@ -48,7 +48,7 @@
 
 ### 1. Environment Setup (5 min)
 ```bash
-cd ~/Documents/Code/nuLLM
+cd ~/Documents/Code/core
 python3 -m venv venv
 source venv/bin/activate
 pip install torch numpy tiktoken tqdm
@@ -120,7 +120,7 @@ python3 src/chat.py
 ## Final Commit Message
 
 ```
-feat: Complete nuLLM implementation - all phases 1-5 working
+feat: Complete core implementation - all phases 1-5 working
 
 - Tokenization: char, word, BPE fully working
 - Attention: Multi-head attention with positional encoding

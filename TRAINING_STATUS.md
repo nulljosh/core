@@ -43,7 +43,7 @@ Test examples:
   - Cubes (0-10)
   - Order of operations
   - Modular arithmetic
-  - Identity questions ("What's your name?" → "nuLLM")
+  - Identity questions ("What's your name?" → "core")
   - Multiple phrasings for variety
 
 ### 2. Training Script ✓

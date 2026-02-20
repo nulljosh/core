@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Train nuLLM on comprehensive dataset: math + jot + identity + time/date"""
+"""Train core on comprehensive dataset: math + jot + identity + time/date"""
 
 import torch
 import torch.nn as nn
@@ -9,7 +9,7 @@ import time
 from datetime import datetime
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
-from transformer import NuLLM
+from transformer import Core
 from tokenizer import CharTokenizer
 
 class TextDataset(Dataset):
@@ -102,7 +102,7 @@ TEST_EVERY = 25
 # ============================================================================
 
 print("="*70)
-print("TRAINING nuLLM ON COMPREHENSIVE DATASET")
+print("TRAINING core ON COMPREHENSIVE DATASET")
 print("Math + Jot + Identity + Time/Date")
 print("="*70)
 
@@ -128,7 +128,7 @@ dataset = TextDataset(text, tokenizer, seq_len=SEQ_LEN)
 dataloader = DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=True)
 
 # Create model
-model = NuLLM(
+model = Core(
     vocab_size=tokenizer.vocab_size,
     embed_dim=EMBED_DIM,
     num_heads=NUM_HEADS,

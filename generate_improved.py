@@ -3,7 +3,7 @@
 import torch
 import sys
 sys.path.insert(0, 'src')
-from transformer import NuLLM
+from transformer import Core
 
 def top_k_top_p_filtering(logits, top_k=0, top_p=0.0, temperature=1.0):
     """Filter logits using top-k and/or nucleus (top-p) sampling"""
@@ -60,7 +60,7 @@ def generate(prompt, model_path='models/ultra.pt', max_tokens=100, temperature=0
         'dropout': 0.1
     })
     
-    model = NuLLM(**config)
+    model = Core(**config)
     model.load_state_dict(checkpoint['model_state_dict'])
     model.eval()
     

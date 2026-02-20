@@ -3,7 +3,7 @@
 import torch
 import sys
 sys.path.insert(0, 'src')
-from transformer import NuLLM
+from transformer import Core
 from tokenizer import CharTokenizer
 
 prompt = sys.argv[1] if len(sys.argv) > 1 else "Q: What's your name?\nA:"
@@ -25,7 +25,7 @@ class SimpleTokenizer:
 
 tokenizer = SimpleTokenizer(checkpoint['vocab'])
 
-model = NuLLM(
+model = Core(
     vocab_size=checkpoint['vocab_size'],
     embed_dim=128,
     num_heads=4,

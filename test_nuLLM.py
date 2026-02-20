@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Comprehensive nuLLM testing"""
+"""Comprehensive core testing"""
 import torch, sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
-from transformer import NuLLM
+from transformer import Core
 from tokenizer import CharTokenizer
 
 MODEL = sys.argv[1] if len(sys.argv) > 1 else 'models/ultra.pt'
@@ -22,7 +22,7 @@ class SimpleTokenizer:
 tokenizer = SimpleTokenizer(checkpoint['vocab'])
 
 # Reconstruct model (match ultra training params)
-model = NuLLM(
+model = Core(
     vocab_size=checkpoint['vocab_size'],
     embed_dim=32,
     num_heads=2,
@@ -67,7 +67,7 @@ demo = [
 for q in demo:
     result = generate(q)
     answer = result.split('\n')[1] if '\n' in result and len(result.split('\n')) > 1 else result[len(q):].strip()
-    expected = "I'm nuLLM" if "name" in q else ("10" if "5+5" in q else "4")
+    expected = "I'm core" if "name" in q else ("10" if "5+5" in q else "4")
     status = "✓" if expected in answer else "✗"
     print(f"\n{status} {q}")
     print(f"   Answer: {answer}")
@@ -78,7 +78,7 @@ print("ADDITIONAL TESTS:")
 print("="*60)
 
 extra = [
-    ("Q: What is your name?\nA:", "I'm nuLLM"),
+    ("Q: What is your name?\nA:", "I'm core"),
     ("Q: What is 5+5?\nA:", "10"),
     ("Q: What is 2+2?\nA:", "4"),
 ]

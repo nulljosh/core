@@ -5,7 +5,7 @@ import sys
 import os
 
 sys.path.insert(0, 'src')
-from transformer import NuLLM
+from transformer import Core
 
 def generate(model, tokenizer, prompt, max_tokens=150, temperature=1.0):
     """Generate text from prompt"""
@@ -46,7 +46,7 @@ def test_inference(model_path='models/interesting.pt'):
     tokenizer = checkpoint['tokenizer']
 
     # Reconstruct model
-    model = NuLLM(
+    model = Core(
         vocab_size=config['vocab_size'],
         embed_dim=config['embed_dim'],
         num_heads=config['num_heads'],

@@ -5,7 +5,7 @@ import torch.nn as nn
 import sys, os
 
 sys.path.insert(0, 'src')
-from transformer import NuLLM
+from transformer import Core
 from tokenizer import CharTokenizer
 from torch.utils.data import Dataset, DataLoader
 
@@ -45,7 +45,7 @@ dataset = TextDataset(expanded, tokenizer, seq_len=30)
 dataloader = DataLoader(dataset, batch_size=4, shuffle=True)
 
 # Small model
-model = NuLLM(
+model = Core(
     vocab_size=tokenizer.vocab_size,
     embed_dim=64,
     num_heads=2,

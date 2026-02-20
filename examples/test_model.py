@@ -8,7 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
 
 import torch
-from transformer import NuLLM
+from transformer import Core
 
 # Tiny model config
 vocab_size = 100
@@ -18,8 +18,8 @@ num_layers = 2
 ff_dim = 256
 max_len = 128
 
-print("Creating nuLLM model...")
-model = NuLLM(
+print("Creating core model...")
+model = Core(
     vocab_size=vocab_size,
     embed_dim=embed_dim,
     num_heads=num_heads,

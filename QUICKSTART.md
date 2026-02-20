@@ -1,4 +1,4 @@
-# nuLLM Quickstart - Get Chatting in 5 Minutes
+# core Quickstart - Get Chatting in 5 Minutes
 
 ## Goal
 Get a basic conversational AI running on your machine. No API costs.
@@ -12,7 +12,7 @@ pip3 install torch
 
 ### 2. Navigate to project
 ```bash
-cd ~/Documents/Code/nuLLM
+cd ~/Documents/Code/core
 ```
 
 ### 3. Run chat
@@ -28,13 +28,13 @@ That's it. The script will:
 ## Example Session
 
 ```
-💬 nuLLM Chat
+💬 core Chat
 You: hi
-nuLLM: hello there
+core: hello there
 You: whats up
-nuLLM: not much just chilling
+core: not much just chilling
 You: quit
-nuLLM: Bye!
+core: Bye!
 ```
 
 ## What's Happening
@@ -63,7 +63,7 @@ To improve:
 
 ## vs Claude
 
-| Feature | nuLLM (now) | Claude |
+| Feature | core (now) | Claude |
 |---------|-------------|--------|
 | Params | 500K | ~100B+ |
 | Training | 1 min | Months |
@@ -71,7 +71,7 @@ To improve:
 | Quality | Basic greetings | Professional |
 | Purpose | Learn/experiment | Production |
 
-nuLLM isn't replacing Claude - it's understanding how Claude works.
+core isn't replacing Claude - it's understanding how Claude works.
 
 ## Next Steps
 

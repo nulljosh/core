@@ -3,7 +3,7 @@
 import torch, torch.nn as nn, sys, os
 from torch.utils.data import Dataset, DataLoader
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
-from transformer import NuLLM
+from transformer import Core
 from tokenizer import CharTokenizer
 
 class TextDataset(Dataset):
@@ -17,7 +17,7 @@ class TextDataset(Dataset):
 
 with open('data/minimal.txt') as f: text = f.read()
 epochs = 200
-print(f"🧠 Training nuLLM - Name + Basic Math")
+print(f"🧠 Training core - Name + Basic Math")
 print(f"📊 Data: {len(text)} chars | Epochs: {epochs}\n")
 
 tokenizer = CharTokenizer(text)
@@ -26,7 +26,7 @@ print(f"✓ Vocab: {tokenizer.vocab_size} chars")
 dataset = TextDataset(text, tokenizer, seq_len=24)
 dataloader = DataLoader(dataset, batch_size=16, shuffle=True)
 
-model = NuLLM(vocab_size=tokenizer.vocab_size, embed_dim=64, num_heads=4, num_layers=3, ff_dim=128, max_len=64, dropout=0.1)
+model = Core(vocab_size=tokenizer.vocab_size, embed_dim=64, num_heads=4, num_layers=3, ff_dim=128, max_len=64, dropout=0.1)
 params = sum(p.numel() for p in model.parameters())
 print(f"✓ Model: {params:,} params\n")
 

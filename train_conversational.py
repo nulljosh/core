@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Train nuLLM on conversational + jot dataset
+Train core on conversational + jot dataset
 """
 
 import torch
@@ -12,7 +12,7 @@ import sys
 # Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
-from transformer import NuLLM
+from transformer import Core
 from tokenizer import CharTokenizer
 
 class TextDataset(Dataset):
@@ -34,7 +34,7 @@ class TextDataset(Dataset):
 with open('data/combined_corpus.txt') as f:
     text = f.read()
 
-print(f"Training nuLLM NANO on combined (conversation + jot)...")
+print(f"Training core NANO on combined (conversation + jot)...")
 print(f"Device: cpu")
 print(f"Text length: {len(text)} chars")
 
@@ -45,7 +45,7 @@ print(f"Vocab size: {tokenizer.vocab_size}")
 dataset = TextDataset(text, tokenizer, seq_len=32)
 
 # Create model
-model = NuLLM(
+model = Core(
     vocab_size=tokenizer.vocab_size,
     embed_dim=128,
     num_heads=4,

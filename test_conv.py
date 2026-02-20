@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import torch, sys
 sys.path.insert(0, 'src')
-from transformer import NuLLM
+from transformer import Core
 
 class SimpleTokenizer:
     def __init__(self, vocab):
@@ -15,7 +15,7 @@ class SimpleTokenizer:
 checkpoint = torch.load('models/conversational.pt', map_location='cpu')
 tokenizer = SimpleTokenizer(checkpoint['vocab'])
 
-model = NuLLM(vocab_size=checkpoint['vocab_size'], embed_dim=128, num_heads=4, num_layers=4, ff_dim=256, max_len=128, dropout=0.1)
+model = Core(vocab_size=checkpoint['vocab_size'], embed_dim=128, num_heads=4, num_layers=4, ff_dim=256, max_len=128, dropout=0.1)
 model.load_state_dict(checkpoint['model_state_dict'])
 model.eval()
 

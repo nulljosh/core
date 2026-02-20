@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 import sys
 sys.path.insert(0, 'src')
-from transformer import NuLLM
+from transformer import Core
 from tokenizer import CharTokenizer
 
 # Load varied data
@@ -16,7 +16,7 @@ print(f"Vocab: {tokenizer.vocab_size} chars")
 print(f"Data: {len(text)} chars\n")
 
 # Model config (small but not tiny)
-model = NuLLM(
+model = Core(
     vocab_size=tokenizer.vocab_size,
     embed_dim=64,
     num_heads=4,

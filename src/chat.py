@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Simple chat interface for nuLLM
+Simple chat interface for core
 Minimal conversational AI - just chat, no tools
 """
 
@@ -15,7 +15,7 @@ except ImportError:
     print("Install: pip3 install torch")
     sys.exit(1)
 
-from transformer import NuLLM
+from transformer import Core
 from tokenizer import CharTokenizer
 import pickle
 
@@ -25,7 +25,7 @@ def load_model(model_path, tokenizer_path):
     with open(tokenizer_path, 'rb') as f:
         tokenizer = pickle.load(f)
     
-    model = NuLLM(
+    model = Core(
         vocab_size=tokenizer.vocab_size,
         embed_dim=64,
         num_heads=4,
@@ -93,7 +93,7 @@ see you. bye bye.
     tokenizer = CharTokenizer(corpus)
     
     # Tiny model
-    model = NuLLM(
+    model = Core(
         vocab_size=tokenizer.vocab_size,
         embed_dim=64,
         num_heads=4,
@@ -138,7 +138,7 @@ def main():
         model, tokenizer = load_model(model_path, tokenizer_path)
     
     print("\n" + "="*60)
-    print("💬 nuLLM Chat (type 'quit' to exit)")
+    print("💬 core Chat (type 'quit' to exit)")
     print("="*60)
     print("Note: This is a tiny model trained on minimal data.")
     print("Responses will be basic but demonstrate the concept.\n")
@@ -151,11 +151,11 @@ def main():
                 continue
             
             if user_input.lower() in ['quit', 'exit', 'bye']:
-                print("nuLLM: Bye!")
+                print("core: Bye!")
                 break
             
             response = generate_response(model, tokenizer, user_input)
-            print(f"nuLLM: {response}")
+            print(f"core: {response}")
             
         except KeyboardInterrupt:
             print("\n\nExiting...")
